@@ -1,7 +1,7 @@
 //all phone showing steps
 const allphones=() => {
     //step1:searchbox are getting by id
-      //document.getElementById("player-container").innerHTML = "";
+      document.getElementById("phone-container").innerHTML = "";
       //step1:searchbox are getting by id
       const searchvalue=document.getElementById('search-box').value;
       //console.log(searchvalue);
@@ -49,3 +49,12 @@ const showphonedetails=(phones)=>{
 }
 
 //details button click then show more details of the phone
+
+//details api fetching 
+
+const details = (id) => {
+    const url = ` https://openapi.programming-hero.com/api/phone/${id}`; 
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => console.log(data.data));//array er 0 number position e id ase
+  };
