@@ -21,6 +21,7 @@ const showphonedetails=(phones)=>{
 
  for(const phone of phones){
     //console.log(phones);
+    //if phone dont match alert showing not done
     // if(searchvalue!=phone){
     //     alert('No found');
     // }
@@ -62,21 +63,42 @@ const details = (id) => {
   //details showing function
 
   const setdetails=(info)=>{
-       console.log(info.mainFeatures);
+       console.log(info.others);
        document.getElementById('details-show').innerHTML=`
-       <div class="card border text-center">
-       <div class="pro-pic">
-           <img class="w-25"src="${info.image}" alt="">
+       <div class="card border text-center ">
+
+       <div class="card text-white bg-primary " style="width: 18rem; ">
+       <img class="w-25 "src="${info.image}" alt="">
+       <div class="card-body">
+       
+   <h2>Name:${info.name}</h2>
+   <h5>Brand:${info.brand}</h5>
+   <h2>ReleaseDate:${info.releaseDate}</h2>
+  
+   <h5>Storage:${info.mainFeatures.storage}</h5>
+   <h5>Displaysize:${info.mainFeatures.displaySize}</h5>
+   <h5>Chipset:${info.mainFeatures.chipSet}</h5>
+   <h5>Memory:${info.mainFeatures.memory}</h5>
+   
+   <h5>Sensors:${info.mainFeatures.sensors[0]}</h5>
        </div>
-       <h2>Name:${info.name}</h2>
-       <h5>Brand:${info.brand}</h5>
-       <h2>ReleaseDate:${info.releaseDate}</h2>
-       <h5>Storage:${info.mainFeatures.storage}</h5>
-       <h5>Displaysize:${info.mainFeatures.displaySize}</h5>
-       <h5>Chipset:${info.mainFeatures.chipSet}</h5>
-       <h5>Memory:${info.mainFeatures.memory}</h5>
+     </div>
       
        
+     
+
+       
+       <div class="card text-white bg-primary mb-3  " style="max-width: 18rem;">
+      <div class="card-header">Others  info</div>
+      <div class="card-body">
+   
+         <h5>WLAN:${info.others.WLAN}</h5>
+          <h5>Bluetooth info:${info.others.Bluetooth}</h5>
+          <h5>GPS:${info.others.GPS}</h5>
+          <h5>NFC:${info.others.NFC}</h5>
+          <h5>Radio:${info.others.Radio}</h5>
+       </div>
+</div>
      
       </div>
     `;
