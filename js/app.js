@@ -56,5 +56,29 @@ const details = (id) => {
     const url = ` https://openapi.programming-hero.com/api/phone/${id}`; 
     fetch(url)
       .then((response) => response.json())
-      .then((data) => console.log(data.data));//array er 0 number position e id ase
+      .then((data) => setdetails(data.data));//array er 0 number position e id ase
   };
+
+  //details showing function
+
+  const setdetails=(info)=>{
+       console.log(info.mainFeatures);
+       document.getElementById('details-show').innerHTML=`
+       <div class="card border text-center">
+       <div class="pro-pic">
+           <img class="w-25"src="${info.image}" alt="">
+       </div>
+       <h2>Name:${info.name}</h2>
+       <h5>Brand:${info.brand}</h5>
+       <h2>ReleaseDate:${info.releaseDate}</h2>
+       <h5>Storage:${info.mainFeatures.storage}</h5>
+       <h5>Displaysize:${info.mainFeatures.displaySize}</h5>
+       <h5>Chipset:${info.mainFeatures.chipSet}</h5>
+       <h5>Memory:${info.mainFeatures.memory}</h5>
+      
+       
+     
+      </div>
+    `;
+
+  }
