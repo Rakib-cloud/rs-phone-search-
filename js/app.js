@@ -17,9 +17,13 @@ const allphones=() => {
 
 const showphonedetails=(phones)=>{
  //console.log(phones);
- for(const phone of phones){
-    // console.log(phones);
+ const searchvalue=document.getElementById('search-box').value;
 
+ for(const phone of phones){
+    //console.log(phones);
+    // if(searchvalue!=phone){
+    //     alert('No found');
+    // }
     const parent=document.getElementById('phone-container');
      const div=document.createElement('div');
 
@@ -32,13 +36,16 @@ const showphonedetails=(phones)=>{
  <h5>Brand:${phone.brand}</h5>
  <p></p>
  <div class="allbutton"> 
-    <button onclick="details('${phone.idPlayer}')" class=" btn btn-success">Details</button>
+    <button onclick="details('${phone.slug}')" class=" btn btn-success">Details</button>
  </div>
 </div>
  `;
 
  parent.appendChild(div);
     
+    
  }
 
 }
+
+//details button click then show more details of the phone
