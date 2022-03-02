@@ -21,7 +21,7 @@ const showphonedetails=(phones)=>{
 let flag=0;
  for(const phone of phones){
     //console.log(phones);
-    //if phone dont match alert showing not done
+  
     const parent=document.getElementById('phone-container');
     const div=document.createElement('div');
 
@@ -44,7 +44,7 @@ parent.appendChild(div);
     
  }
 if(flag==0){
-  alert('no phone data found');
+  alert('no phone data found');//no phone showing alert
 }
 }
 
@@ -56,10 +56,10 @@ const details = (id) => {
     const url = ` https://openapi.programming-hero.com/api/phone/${id}`; 
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setdetails(data.data));//array er 0 number position e id ase
+      .then((data) => setdetails(data.data));
   };
 
-  //details showing function
+  //details showing function and one releasedate upcoming text work
 
   const setdetails=(info)=>{
        console.log(info.others);
@@ -72,7 +72,7 @@ const details = (id) => {
        
    <h2>Name:${info.name}</h2>
    <h5>Brand:${info.brand}</h5>
-   <h2>ReleaseDate:${info.releaseDate}</h2>
+   <h2>ReleaseDate:${info.releaseDate?info.releaseDate:'Upcoming stay with us'}</h2>
   
    <h5>Storage:${info.mainFeatures.storage}</h5>
    <h5>Displaysize:${info.mainFeatures.displaySize}</h5>
