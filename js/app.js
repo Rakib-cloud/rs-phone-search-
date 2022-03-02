@@ -44,7 +44,7 @@ parent.appendChild(div);
     
  }
 if(flag==0){
-  alert('no phone data found');//no phone showing alert
+  document.getElementById("no-phone").style.display = "block";
 }
 }
 
@@ -64,7 +64,7 @@ const details = (id) => {
   const setdetails=(info)=>{
        console.log(info.others);
        document.getElementById('details-show').innerHTML=`
-       <div class="card border text-center ">
+       <div class="card border text-center   ">
 
        <div class="card text-white bg-primary " style="width: 18rem; ">
        <img class="w-25 "src="${info.image}" alt="">
@@ -90,12 +90,12 @@ const details = (id) => {
        <div class="card text-white bg-primary mb-3  " style="max-width: 18rem;">
       <div class="card-header">Others  info</div>
       <div class="card-body">
-   
-         <h5>WLAN:${info.others.WLAN}</h5>
-          <h5>Bluetooth info:${info.others.Bluetooth}</h5>
-          <h5>GPS:${info.others.GPS}</h5>
-          <h5>NFC:${info.others.NFC}</h5>
-          <h5>Radio:${info.others.Radio}</h5>
+      
+         <h5>WLAN:${info.others?.WLAN??'No others information found'}</h5>
+          <h5>Bluetooth info:${info.others?.Bluetooth??'No others information found'}</h5>
+          <h5>GPS:${info.others?.GPS??'No others information found'}</h5>
+          <h5>NFC:${info.others?.NFC??'No others information found'}</h5>
+          <h5>Radio:${info.others?.Radio??'No others information found'}</h5>
        </div>
 </div>
      
