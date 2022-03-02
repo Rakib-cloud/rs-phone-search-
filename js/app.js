@@ -2,6 +2,7 @@
 const allphones=() => {
     //step1:searchbox are getting by id
       document.getElementById("phone-container").innerHTML = "";
+      document.getElementById('details-show').style.display='none';
       //step1:searchbox are getting by id
       const searchvalue=document.getElementById('search-box').value;
       //console.log(searchvalue);
@@ -63,6 +64,7 @@ const details = (id) => {
 
   const setdetails=(info)=>{
        console.log(info.others);
+       document.getElementById('details-show').style.display='block';
        document.getElementById('details-show').innerHTML=`
        <div class="card border text-center   ">
 
